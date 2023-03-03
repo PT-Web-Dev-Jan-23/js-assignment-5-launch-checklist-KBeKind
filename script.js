@@ -25,14 +25,6 @@ window.addEventListener("load", function () {
         
         const formInputs = form.querySelectorAll('input[type="text"]');
 
-        for (let i = 0; i < formInputs.length; i++) {
-            if (formInputs[i].value === '') {
-                alert('All fields are required!');
-                event.preventDefault();
-                break;
-            }
-        }
-
         const pilotName = formInputs[0].value;
         const copilotName = formInputs[1].value;
         const fuelAmount = formInputs[2].value;
