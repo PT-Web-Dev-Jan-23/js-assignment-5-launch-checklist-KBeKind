@@ -72,6 +72,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
         } else {
             inputsValidated = true;
+            list.style.visibility = "visible";
         }
 
         if (inputsValidated) {
@@ -80,7 +81,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         }
 
         if (fuelLevel < 10000 && inputsValidated) {
-            list.style.visibility = "visible";
+            //list.style.visibility = "visible";
             statusList[2].innerHTML = `Fuel level too low for launch`;
             haltLaunch();
         } else {
@@ -88,7 +89,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         }
 
         if (cargoLevel > 10000 && inputsValidated) {
-            list.style.visibility = "visible";
+            //list.style.visibility = "visible";
             statusList[3].innerHTML = `Cargo mass too heavy for launch`;
             haltLaunch();
         } else {
