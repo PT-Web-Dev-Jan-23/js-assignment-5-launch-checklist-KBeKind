@@ -60,8 +60,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     if (inputsValidated) {
-        statusList[0].innerHTML = `Pilot ${pilot} Ready`;
-        statusList[1].innerHTML = `Co-pilot ${copilot} Ready`;
+        statusList[0].innerHTML = `Pilot ${pilot} is ready for launch`;
+        statusList[1].innerHTML = `Co-pilot ${copilot} is ready for launch`;
     }
 
     if (fuelLevel < 10000 && inputsValidated) {
