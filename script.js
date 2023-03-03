@@ -1,11 +1,28 @@
 
 window.addEventListener("load", function () {
+    
+    let listedPlanets;
+    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
+    let listedPlanetsResponse = myFetch();
+    listedPlanetsResponse.then(function (result) {
+        listedPlanets = result;
+        console.log(listedPlanets);
+    }).then(function () {
+        console.log(listedPlanets);
+        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+    
+        const planet = pickPlanet(listedPlanets);
+        addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image);
+    });
+
 
     const form = document.querySelector("form");
-    const formSubmit = document.getElementById("formSubmit");
+    
+    const faultyItemsList = document.getElementById("faultyItems");
+    faultyItemsList.style.visibility = 'hidden';
 
-    formSubmit.addEventListener("click", function (event) {
-
+    form.addEventListener("submit", function (event) {
+        
         const formInputs = form.querySelectorAll('input[type="text"]');
 
         for (let i = 0; i < formInputs.length; i++) {
@@ -16,7 +33,6 @@ window.addEventListener("load", function () {
             }
         }
 
-        const faultyItemsList = document.getElementById("faultyItems");
         const pilotName = formInputs[0].value;
         const copilotName = formInputs[1].value;
         const fuelAmount = formInputs[2].value;
@@ -28,18 +44,7 @@ window.addEventListener("load", function () {
     });
 
 
-    let listedPlanets;
-    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    let listedPlanetsResponse = myFetch();
-    listedPlanetsResponse.then(function (result) {
-        listedPlanets = result;
-        console.log(listedPlanets);
-    }).then(function () {
-        console.log(listedPlanets);
-        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-
-        const planet = pickPlanet(listedPlanets);
-        addDestinationInfo(document, planet.name, planet.diameter, planet.star, planet.distance, planet.moons, planet.image);
-    });
 
 });
+
+

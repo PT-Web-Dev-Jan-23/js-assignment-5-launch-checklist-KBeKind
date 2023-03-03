@@ -32,9 +32,7 @@ function validateInput(testInput = "") {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
-    //ADDED THIS BELOW AS A TEST
-    list.style.visibility = "hidden";
-    //TEST ABOVE
+
 
     function haltLaunch() {
         launchStatus.style.color = "rgb(199, 37, 78)";
